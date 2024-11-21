@@ -1,5 +1,5 @@
 <?php
-include 'indexs.php';
+include 'index.php';
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("UPDATE tasks SET task=? WHERE id=?");
         $stmt->bind_param("si", $task, $id); 
         if ($stmt->execute()) {
-            header("Location: indexs.php");
+            header("Location: index.php");
             exit; 
         }
         $stmt->close();
